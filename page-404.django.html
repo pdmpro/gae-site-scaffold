@@ -1,0 +1,45 @@
+{% comment %}
+	Content for the 404 error page.
+{% endcomment %}
+{% include "pieces/1-head.html" %}
+
+<!-- specifc "one-off" styles -->
+<style>
+	#headerwrap {
+		-ms-transform: rotate(-16deg);
+		-webkit-transform: rotate(-16deg);
+		transform: rotate(-16deg);
+		margin-bottom: 7em;
+	}
+	header#visibleHeader {
+		-ms-transform: rotate(19deg);
+		-webkit-transform: rotate(19deg);
+		transform: rotate(19deg);
+	}
+	header#visibleHeader p, header#visibleHeader h1 {
+		color: red !important;
+	}
+	header#visibleHeader h1 {
+		font-size: 4.5em;
+	}
+</style>
+
+{% include "pieces/2-navbar.html" %}
+{% include "pieces/3-page-header.html" %}
+
+<section id="intro">
+	<div class="centered center-block">
+		<p class="sub-heroic">
+			Sorry, but we can't find the URL you and/or your browser requested.
+		</p>
+		<p>
+			(Well, more accurately, your browser asked for a URL for a page that doesn't exist.)
+		</p>
+		<p class="sub-heroic">
+			Not to worry. There's a menu up there that will make it all better.
+		</p>
+	</div>
+</section>
+
+{% include "pieces/5-footer.html" %}
+{% include "pieces/6-bottom.html" %}

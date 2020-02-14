@@ -1,0 +1,17 @@
+{% comment %}
+	Shows how the data for "injections" actually gets incpororated.
+    (Passed through from Python, then churned into HTML in Django.)
+{% endcomment %}
+
+<section id="injectedContent">
+	<div class="row">
+		{% for injection in injectedContent %}
+			<div class="col-sm-6 quotation {% if not forloop.counter|divisibleby:2 %}righted{% endif %}">
+				{{injection.1}}
+				<div class="attribution">
+					{{injection.0}}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</section>

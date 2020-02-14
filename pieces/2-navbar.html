@@ -1,0 +1,32 @@
+{% comment %}
+	Site navigation.
+
+	Known issue: depending on the number of items in the navbar,
+	it disappears too early (as the viewport width decreases). TODO: could fix.
+{% endcomment %}
+<div id="navbar-main"><span id="top"></span>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<i class="fa fa-bars navbar-header-button" aria-hidden="true"></i>
+				</button>
+				<a class="navbar-brand hidden-xs smoothScroll" href="/">[[SITE_TITLE]]</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/"><span class="navicontext">Home</span></a></li>
+					<!-- the Shield theme's dropdown menu effect leaves a lot to be desired; TODO: improve it -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Other pages<span class="caret"></span></a>
+                        <ul class="navbar dropdown-menu">
+                            <li><a href="/[[SOME_PATH]]">Somewhere</a></li>
+                            <li><a href="/[[SOME_PATH]]">Somewhere else</a></li>
+                        </ul>
+                    </li>
+                </ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+# sets up cron jobs. in this example, it calls the "sitepinger" every 27 minutes.
+# NOTE: must be deployed explicitly -- see:
+#       https://cloud.google.com/appengine/docs/standard/python/config/cron?hl=en_US
+# also, be careful with cron. A free site can easily blow past its limits when a cron job runs too often.
+cron:
+- description: ping my sites
+  url: /sitepinger
+  schedule: every 8 hours

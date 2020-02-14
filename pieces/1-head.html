@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="[[AUTHOR_NAME]]">
+    <meta name="description" content="[[SOME_DESCRIPTION]]">
+
+    <title>{{pageName}} | [[YOUR_SITE_TAGLINE]]</title>
+
+	<!-- CSS includes... delete 'em if you don't need 'em -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<link rel="stylesheet" href="/css/custom.css?v={{cachebuster}}" /> <!-- this querystring breaks the stubborn cache on iPhones and iPads -->
+
+	<!-- you can quickly generate custom icons for various devices
+        thanks to the awesome folks at http://www.favicomatic.com/
+		so... do that, then uncomment all this -->
+	<!-- <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/icons/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/icons/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/icons/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icons/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/icons/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196" />
+	<link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16" />
+	<link rel="icon" type="image/png" href="/icons/favicon-128.png" sizes="128x128" />
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="/icons/mstile-144x144.png" />
+	<meta name="msapplication-square70x70logo" content="/icons/mstile-70x70.png" />
+	<meta name="msapplication-square150x150logo" content="/icons/mstile-150x150.png" />
+	<meta name="msapplication-wide310x150logo" content="/icons/mstile-310x150.png" />
+	<meta name="msapplication-square310x310logo" content="/icons/mstile-310x310.png" />
+	<link rel="shortcut icon" href="/favicon.ico"> -->
+
+    <script>
+        // Glen's hack to the console
+        console.dirWithMsg = function(message, obj, optSeverity) {
+            optSeverity = optSeverity || "info";
+            console[optSeverity](message + ": ");
+            console.dir(obj);
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-offset="0" data-target="#navbar-main" class="forceMyFontSizePlease" data-page-id="pg-{{pageId|escape}}">

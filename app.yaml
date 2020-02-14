@@ -1,0 +1,48 @@
+# Lightweight scaffolding I've evolved since 2014 for Google AppEngine-hosted web sites,
+# including blogs and general CMS applications. So I'm going to call it a lightweight CMS.
+# Used: Python 2.7 (for now), Django, HTML, JavaScript, Django-powered CSS, Bootstrap 3, jQuery.
+
+# Spin up a local server, do deployments to prod, etc. using the gcloud CLI.
+# But, don't forget to deploy cron (if you're using it): gcloud app deploy cron.yaml
+
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+
+builtins:
+- remote_api: on
+
+default_expiration: "1d"  # adjust this to your liking regarding caches
+
+# favicon and robots.txt get served up as a static files, like a "real" web server
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /robots\.txt
+  static_files: robots.txt
+  upload: robots.txt
+
+# this is my directory structure for static content. use it as is, or make it your own!
+# -- note that /icons/ is intended for the Apple touch icons and assets of that kind
+# -- and /media/ is for downloadable stuff. this is just arbitrary
+- url: /js
+  static_dir: js
+
+- url: /images
+  static_dir: images
+
+- url: /icons
+  static_dir: icons
+
+- url: /media
+  static_dir: media
+
+# OK, now to business. All non-static requests get routed to this Python WSGIApplication.
+- url: .*
+  script: content.app
