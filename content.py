@@ -25,18 +25,25 @@ class AbstractRequestHandler(webapp2.RequestHandler):
     def initialize(self, request, response):
         # extends the usual initializer to do common tasks (at least one)
         super(AbstractRequestHandler, self).initialize(request, response)
+        prod_domain = "YOUR.FQDN"
         self.context = {
-            "prodUrl": "https://YOUR_DOMAIN",
-            "onDevEnv": not self.request.host.lower().startswith("YOUR_DOMAIN"),
+            "hostname": self.request.host,
+            "prod_domain": prod_domain,
+            "prodUrl": "https://{}".format(prod_domain),
+            "onDevEnv": not self.request.host.lower().startswith(prod_domain),
             "copyrightStart": "1066",
             "copyrightEnd": datetime.now().year,  # look, you never need to update your copyright notices!
             "accentColor_1": "#fedcba",
             "accentColor_2": "#012345",
             "linkColor_main": "#6789a",
             "linkColor_hover": "#aabbcc",
+            "danger_color": "#ff7001",
+            "success_color": "#75c181",
             "bodyFont": "Roboto",
             "headingFont": "Merriweather",
             "monoFont": "Consolas",
+            "googleAnalyticsId": "UA-91676111-2",
+            "googleTagManagerId": "GTM-KZV564T",
             "cachebuster": "001"  # tricky little doodad that busts an overaggressive mobile device cache of static assets
         }
 
