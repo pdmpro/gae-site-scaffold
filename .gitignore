@@ -162,3 +162,5 @@ dmypy.json
 
 # specific to my collections
 fobbh/js/bootsytours/
+icons/.DS_Store
+images/.DS_Store
