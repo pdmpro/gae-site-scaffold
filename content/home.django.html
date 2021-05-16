@@ -3,14 +3,11 @@
 	but heavily modified for 2019. Still Bootstrap 3 tho.
 
 	Deeply-nested stuff is Django-included, otherwise the content is here.
-
-	General TODOs:
-		We're gonna need a bigger print stylesheet. (Um, make a print stylesheet maybe.)
 {% endcomment %}
 
-{% include "pieces/1-head.html" %}
+{% include "1-head.html" %}
 
-{% include "pieces/2-navbar.html" %}
+{% include "2-navbar.html" %}
 
 <div id="headerwrap">
 	<header class="clearfix">
@@ -32,7 +29,7 @@
 		<div class="col-md-6 callout">
 			<h3>B</h3>
 			<p>
-				is for Bootstrap (but I'm still on version 3).
+				is for Bootstrap (I've upgraded from version 3).
 			</p>
 		</div>
 		<div class="clearfix visible-sm-block"></div>
@@ -59,7 +56,7 @@
     <div class="tab-content clearfix">
         <div class="tab-pane active" id="tab-the-first">
             <h3>This is some tab content</h3>
-            {% include "pieces/content-injections.html" %}
+            {% include "content-injections.html" %}
         </div>
         <div class="tab-pane" id="tab-the-second">
             <h3>This is, likewise, some other tab content</h3>
@@ -68,5 +65,5 @@
     </div>
 </div>
 
-{% include "pieces/5-footer.html" %}
-{% include "pieces/6-bottom.html" %}
+{% include "5-footer.html" %}
+{% include "6-bottom.html" %}

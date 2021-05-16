@@ -1,0 +1,11 @@
+{% comment %}
+    OpenGraph and other meta tags for other pages.
+{% endcomment %}
+<meta name="description" content="{{abstract|safe}}">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{prodUrl}}/{{sefPathForMeta}}" />
+<meta property="og:title" content="{{title|safe}}" />
+<meta property="og:description" content="{{abstract|safe}}" />
+<meta property="og:image" content="{{prodUrl}}{{headerBackgroundUrl}}" />
+<meta property="og:site_name" content="{{siteTitle}}" />
+<meta name="twitter:card" content="summary_large_image">

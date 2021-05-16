@@ -1,0 +1,15 @@
+{% comment %}
+	Visible header for pages that aren't the homepage.
+{% endcomment %}
+
+<style>
+	#title-stripe {
+		background-image: url({{headerBackgroundUrl|safe}});
+	}
+</style>
+
+<header>
+	<div id="title-stripe">
+		<h1 id="title">{{title|safe}}</h1>
+	</div>
+</header>

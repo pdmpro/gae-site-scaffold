@@ -77,7 +77,7 @@ components separate from the real content files makes editing the interesting st
 easier.
 
 #### Injections
-This scaffolding also demonstrates how to inject data-driven content into this basic template structure. In this case, `data.py` acts as a database; `content.py` reads it into the Django context; the `page-*-django.html` includes `/pieces/content-injections.html`; and that file displays the dynamic content.
+This scaffolding also demonstrates how to inject data-driven content into this basic template structure. In this case, `data.py` acts as a database; `content.py` reads it into the Django context; the `page-*-django.html` includes `/content/content-injections.html`; and that file displays the dynamic content.
 
 ## Keeping going
 From there, it's all just basic Bootstrap-powered web development.

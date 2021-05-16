@@ -1,9 +1,12 @@
 # Lightweight scaffolding I've evolved since 2014 for Google AppEngine-hosted web sites,
 # including blogs and general CMS applications. So I'm going to call it a lightweight CMS.
-# Used: Python 2.7 (for now), Django, HTML, JavaScript, Django-powered CSS, Bootstrap 3, jQuery.
+# Used: Python 2.7, Django, HTML, JavaScript, Django-powered CSS, Bootstrap 3, jQuery.
 
 # Spin up a local server, do deployments to prod, etc. using the gcloud CLI.
 # But, don't forget to deploy cron (if you're using it): gcloud app deploy cron.yaml
+
+# I do not intend to upgrade to Python 3 until I absolutely have to. The surface area is quite big.
+# See: https://cloud.google.com/appengine/docs/standard/python/migrate-to-python3
 
 runtime: python27
 api_version: 1
@@ -16,12 +19,12 @@ libraries:
 builtins:
 - remote_api: on
 
-default_expiration: "1d"  # adjust this to your liking regarding caches
+default_expiration: 30d  # adjust these to your liking regarding caches
 
-# favicon and robots.txt get served up as a static files, like a "real" web server
 handlers:
+# favicon and robots.txt get served up as a static files, like a "real" web server
 - url: /favicon\.ico
-  static_files: favicon.ico
+  static_files: /icons/favicon.ico
   upload: favicon\.ico
 
 - url: /robots\.txt
@@ -33,16 +36,23 @@ handlers:
 # -- and /media/ is for downloadable stuff. this is just arbitrary
 - url: /js
   static_dir: js
+  secure: always  # force HTTPS if you want... it's a good practice, and free
 
 - url: /images
   static_dir: images
+  expiration: 90d
+  secure: always
 
 - url: /icons
   static_dir: icons
+  expiration: 180d
+  secure: always
 
 - url: /media
   static_dir: media
+  secure: always
 
 # OK, now to business. All non-static requests get routed to this Python WSGIApplication.
 - url: .*
   script: content.app
+  secure: always
