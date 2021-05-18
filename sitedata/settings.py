@@ -13,8 +13,8 @@ paths = {  # note to self: no trailing slashes here please
 }
 
 brand_colors = {
-    "somecolor": "#666",
-    "yourcolor": "#333",
+    "somecolor": "#79b198",
+    "yourcolor": "#b1986b",
     "yourothercolor": "#9c9c9c"
 }
 
@@ -22,8 +22,8 @@ django_context = {
     "prod_domain": prod_domain,
     "prodUrl": "https://{}".format(prod_domain),
     "ga_id": "G-SOME_GOOG_ANALYTICS_ID",
-    "cachebuster": "commerce,tx",
-    "siteTitle": "AustinProduct.Pro",
+    "cachebuster": "your_arbitrary_value",
+    "siteTitle": "YOUR_SITE_NAME",
     "copyrightStart": "2020",
     "copyrightEnd": datetime.now().year,
     "accentColor_1": brand_colors["yourcolor"],
@@ -35,6 +35,6 @@ django_context = {
     "bodyFontAlt": "'New York', 'Times New Roman', serif",
     "headingFont": "'Helvetica Neue'",
     "headingFontAlt": "Roboto, sans-serif",
-    "monoFont": "Consolas", \
+    "monoFont": "Consolas",
     "paths": paths,
 }
