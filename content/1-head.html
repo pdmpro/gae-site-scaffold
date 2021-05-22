@@ -13,11 +13,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700" />
 
 	<!-- open graph etc. -->
-	{% if article %}
-		{% include "1a-meta-articles.html" %}
-	{% else %}
-		{% include "1b-meta-pages.html" %}
-	{% endif %}
+	{% include "1b-meta-pages.html" %}
 
 	<!-- if you use Google Analytics, here's how you can include it -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ga_id}}"></script>

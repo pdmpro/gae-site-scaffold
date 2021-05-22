@@ -99,7 +99,7 @@ class AbstractRequestHandler(webapp2.RequestHandler):
         try:
             self.context["headerBackgroundUrl"] = "{root}/{path}".format(root=settings.paths["images"], path=page_specific_config["headerBackgroundUrl"])
         except KeyError:
-            self.context["headerBackgroundUrl"] = "{root}/science-kit-1200w.jpg".format(root=settings.paths["images"])
+            self.context["headerBackgroundUrl"] = "{root}/cow-closeup-amanda-kerr-226442-unsplash-1200w.jpg".format(root=settings.paths["images"])
         return page_specific_config
 
     def respond(self, partial_filename, filename_prefix=settings.content_path):
@@ -129,34 +129,12 @@ class SubPage(AbstractRequestHandler):
         self.get_page_data("YOUR_PAGE_ID")
         self.respond("YOUR_PAGE_ID")
 
-class BlogListPage(AbstractRequestHandler):
-    def get(self):
-        super(BlogListPage, self).get()
-        self.context["articles"] = ArticleArbiter.get_all()
-        self.get_page_data("blog-list")  # this is not totes DRY
-        self.respond("blog-list")
-
-class BlogPostPage(AbstractRequestHandler):
-    def get(self, path):
-        super(BlogPostPage, self).get()
-        path = path.lower()
-        try:
-            article = ArticleArbiter.get_one(path)
-        except ArticleNotFoundError:
-            # the article doesn't exist, so 404 it
-            gflog("SENDING A 404: no article found for key %s" % (path))
-            FourOhFour(self.request, self.response).get(path)
-            return None
-        self.context["article"] = article
-        self.context["title"] = article["title"]  # duplicated because it needs to be in the <head>
-        self.respond("blog-post")
-
 class FourOhFour(AbstractRequestHandler):
     def get(self, path):
         super(FourOhFour, self).get()
         # logging.error("{marker}404 for path {p}".format(marker=">>>>> " * 3, p=path))
         self.context["title"] = "Oops"
-        self.context["headerBackgroundUrl"] =  "{root}/science-kit-1200w.jpg".format(root=settings.paths["images"])
+        self.context["headerBackgroundUrl"] =  "{root}/cow-closeup-amanda-kerr-226442-unsplash-1200w.jpg".format(root=settings.paths["images"])
         self.error(404)
         self.respond("404")
 
@@ -203,10 +181,6 @@ app = webapp2.WSGIApplication([
     # "top-level" pages (should be limited in number)
     (r"/?", HomePage),
     (r"/YOUR_PATH_HERE/?", SubPage),
-
-    # the blog/other resources
-    (r'/blog/?', BlogListPage),  # blog list page
-    (r'/blog/(.+)', BlogPostPage),  # a blog post/other resource article, using the blog subsystem
 
     # non-HTML
     (r"/css/([\w_-]+).css", CSSFile),
